@@ -147,7 +147,7 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    onClick={() => scrollToSection(item.toLowerCase().replace(" ", "-"))}
+                    onClick={() =>{ scrollToSection(item.toLowerCase().replace(" ", "-"));setMobileMenuOpen(!mobileMenuOpen)}}
                     className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 w-full text-left transition-colors"
                   >
                     {item}

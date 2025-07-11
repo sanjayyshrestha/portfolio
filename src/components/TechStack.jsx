@@ -60,17 +60,17 @@ const TechIcon = ({ name }) => {
 
 const TechStack = () => {
   const techStack = [
-    { name: "TypeScript", category: "Language", level: 90 },
-    { name: "React", category: "Frontend", level: 95 },
-    { name: "JavaScript", category: "Language", level: 92 },
+    { name: "TypeScript", category: "Language", level: 40 },
+    { name: "React", category: "Frontend", level: 60 },
+    { name: "JavaScript", category: "Language", level: 80 },
     { name: "Node.js", category: "Backend", level: 85 },
-    { name: "Express", category: "Backend", level: 82 },
-    { name: "PostgreSQL", category: "Database", level: 80 },
-    { name: "MongoDB", category: "Database", level: 78 },
-    { name: "AWS", category: "Cloud", level: 75 },
-    { name: "Docker", category: "DevOps", level: 70 },
-    { name: "Git", category: "Tools", level: 92 },
-    { name: "Tailwind CSS", category: "Styling", level: 90 },
+    { name: "Express", category: "Backend", level: 85 },
+    { name: "PostgreSQL", category: "Database", level: 50 },
+    { name: "MongoDB", category: "Database", level: 80 },
+    { name: "AWS", category: "Cloud", level: 5 },
+    { name: "Docker", category: "DevOps", level: 5 },
+    { name: "Git", category: "Tools", level: 80 },
+    { name: "Tailwind CSS", category: "Styling", level: 85 },
   ]
 
   const fadeInUp = {

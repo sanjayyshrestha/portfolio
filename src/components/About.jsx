@@ -29,17 +29,17 @@ const About = () => {
             className="space-y-6"
           >
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              I'm a passionate full-stack developer with a strong foundation in modern web technologies and a growing
+              I am a passionate full-stack developer with a strong foundation in modern web technologies and a growing
               expertise in cloud infrastructure and DevOps practices. My journey in software development is driven by a
               love for creating scalable, efficient solutions that solve real-world problems.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              With proficiency in TypeScript, React, and Node.js, I build robust applications from concept to
-              deployment. I'm particularly interested in microservices architecture, containerization, and cloud-native
+              With proficiency in TypeScript, React and Node.js, I build robust applications from concept to
+              deployment. I am particularly interested in microservices architecture, containerization and cloud-native
               development patterns that enable teams to deliver software faster and more reliably.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              Currently expanding my knowledge in AWS services, Docker, and CI/CD pipelines to bridge the gap between
+              Currently expanding my knowledge in AWS services, Docker and CI/CD pipelines to bridge the gap between
               development and operations. I believe in writing clean, maintainable code and following best practices for
               security and performance.
             </p>

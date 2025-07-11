@@ -8,9 +8,9 @@ import leafstack from '../assets/leafstack.png'
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "LeafStack",
       description:
-        "Full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard.",
+        "A digital platform that connects readers with a wide selection of books available for purchase. LeafStack aims to simplify the book-buying experience and support book distribution through an accessible online marketplace.",
       tags: ["React", "Node.js", "MongoDB", "Express"],
       github: "https://github.com/sanjayyshrestha/leafstack",
       live: "https://example.com",
@@ -124,7 +124,7 @@ const Projects = () => {
                         Code
                       </a>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <a
                         href={project.live}
                         className="flex items-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -132,7 +132,7 @@ const Projects = () => {
                         <ExternalLink className="h-4 w-4 mr-1" />
                         Live Demo
                       </a>
-                    </motion.div>
+                    </motion.div> */}
                   </div>
                 </div>
               </Card>
