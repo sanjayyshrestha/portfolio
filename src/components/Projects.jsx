@@ -55,7 +55,7 @@ const Projects = () => {
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            A showcase of my recent work demonstrating full-stack development and cloud deployment skills
+            A showcase of my recent work demonstrating full-stack development
           </p>
         </motion.div>
 
