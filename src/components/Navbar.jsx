@@ -64,7 +64,7 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
               </div>
             </div>
 
-            <div className="flex items-center space-x-4 relative right-3">
+            <div className="flex items-center space-x-1">
               <motion.button
                 onClick={() => setDarkMode(!darkMode)}
                 className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -97,7 +97,7 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
               </motion.button>
 
               {/* Mobile menu button */}
-              <div className="md:hidden relative right-4">
+              <div className="md:hidden">
                 <motion.button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                   className="p-2 rounded-md text-gray-700 dark:text-gray-300"
@@ -158,6 +158,7 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
           )}
         </AnimatePresence>
       </motion.nav>
+ 
   )
 }
 

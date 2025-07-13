@@ -25,7 +25,6 @@
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.75rem;
   }
-
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -73,7 +72,6 @@ html {
     transform: translateY(0);
   }
 }
-
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out;
 }
@@ -87,20 +85,16 @@ html {
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(45deg, #3b82f6, #8b5cf6);
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(45deg, #2563eb, #7c3aed);
 }
-
 .dark ::-webkit-scrollbar-track {
   background: #374151;
 }
@@ -109,59 +103,45 @@ html {
 .bg-background {
   background-color: hsl(var(--background));
 }
-
 .text-foreground {
   color: hsl(var(--foreground));
 }
-
 .bg-card {
   background-color: hsl(var(--card));
 }
-
 .text-card-foreground {
   color: hsl(var(--card-foreground));
 }
-
 .bg-primary {
   background-color: hsl(var(--primary));
 }
-
 .text-primary-foreground {
   color: hsl(var(--primary-foreground));
 }
-
 .bg-secondary {
   background-color: hsl(var(--secondary));
 }
-
 .text-secondary-foreground {
   color: hsl(var(--secondary-foreground));
 }
-
 .bg-accent {
   background-color: hsl(var(--accent));
 }
-
 .text-accent-foreground {
   color: hsl(var(--accent-foreground));
 }
-
 .text-muted-foreground {
   color: hsl(var(--muted-foreground));
 }
-
 .border-border {
   border-color: hsl(var(--border));
 }
-
 .border-input {
   border-color: hsl(var(--input));
 }
-
 .ring-ring {
   --tw-ring-color: hsl(var(--ring));
 }
-
 .ring-offset-background {
   --tw-ring-offset-color: hsl(var(--background));
 }

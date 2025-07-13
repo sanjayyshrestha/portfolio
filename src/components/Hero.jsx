@@ -31,14 +31,14 @@ const Hero = ({ scrollToSection }) => {
   };
 
   return (
-    <section
+     <section
   id="home"
   className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-16 relative overflow-hidden"
 >
   {/* Animated background elements */}
   <div className="absolute inset-0 overflow-hidden">
     <motion.div
-      className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20"
+      className="absolute -top-40 -right-40 w-80 h-80  rounded-full mix-blend-multiply filter blur-xl opacity-20"
       animate={{
         x: [0, 100, 0],
         y: [0, -100, 0],
@@ -50,7 +50,7 @@ const Hero = ({ scrollToSection }) => {
       }}
     />
     <motion.div
-      className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20"
+      className="absolute -bottom-40 -left-40 w-80 h-80rounded-full mix-blend-multiply filter blur-xl opacity-20"
       animate={{
         x: [0, -100, 0],
         y: [0, 100, 0],
@@ -83,7 +83,7 @@ const Hero = ({ scrollToSection }) => {
       initial="initial"
       animate="animate"
       variants={staggerContainer}
-      className="text-center lg:text-left space-y-8 order-2 lg:order-2 flex-1"
+      className="text-center lg:text-left space-y-8 order-2 lg:order-2 flex-1 pb-5"
     >
       <motion.div variants={fadeInUp} className="space-y-4">
         <motion.h1
@@ -149,7 +149,7 @@ const Hero = ({ scrollToSection }) => {
       color: "hover:text-red-500",
     },
   ].map(({ icon: Icon, href, color }, index) => (
-    <motion.div key={index} whileHover={{ scale: 1.2, y: -5 }} whileTap={{ scale: 0.9 }}>
+    <motion.div className="" key={index} whileHover={{ scale: 1.2, y: -5 }} whileTap={{ scale: 0.9 }}>
       <a
         href={href}
         target="_blank"
