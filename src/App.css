@@ -145,3 +145,9 @@ html {
 .ring-offset-background {
   --tw-ring-offset-color: hsl(var(--background));
 }
+@media (min-width: 340px) and (max-width: 775px) {
+  .typing-text{
+    
+    bottom: 10px;
+  }
+}
