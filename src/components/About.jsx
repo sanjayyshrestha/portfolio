@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion"
 import { Code, Server, Database, Cloud } from "lucide-react"
+
 import Card from "./ui/Card"
 import Badge from "./ui/Badge"
-
 
 const containerVariants = {
   hidden: { opacity: 0 },

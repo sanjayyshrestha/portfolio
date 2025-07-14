@@ -9,6 +9,7 @@ import Projects from "./components/Projects"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 import "./App.css"
+import { Experience } from "./components/Experience"
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -118,6 +119,7 @@ function App() {
       <About />
       <TechStack />
       <Projects />
+      {/* <Experience /> */}
       <Contact />
       <Footer />
     </div>

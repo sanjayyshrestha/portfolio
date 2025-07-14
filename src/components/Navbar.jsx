@@ -6,6 +6,12 @@ import { Moon, Sun, Menu, X } from "lucide-react"
 
 const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+   const scrollToHome = () => {
+    const section = document.getElementById("home");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <motion.nav
@@ -15,7 +21,7 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <motion.div className="flex items-center" whileHover={{ scale: 1.05 }}>
+            <motion.div onClick={scrollToHome} className="flex items-center"  whileHover={{ scale: 1.05 }}>
                <span
           className={`font-extrabold text-xl  lg:text-2xl tracking-tight ${
             darkMode ? 'text-gray-100' : 'text-gray-800' // Text color changes with mode
