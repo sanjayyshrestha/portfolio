@@ -21,9 +21,9 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <motion.div onClick={scrollToHome} className="flex items-center"  whileHover={{ scale: 1.05 }}>
+            <motion.div  onClick={scrollToHome} className="flex items-center cursor-pointer"  whileHover={{ scale: 1.05 }}>
                <span
-          className={`font-extrabold text-xl  lg:text-2xl tracking-tight ${
+          className={`font-extrabold text-xl   lg:text-2xl tracking-tight ${
             darkMode ? 'text-gray-100' : 'text-gray-800' // Text color changes with mode
           }`}
           style={{ fontFamily: 'Inter, sans-serif' }} // Using Inter as specified, with sans-serif fallback
