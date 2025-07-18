@@ -67,7 +67,7 @@ const Hero = ({ scrollToSection }) => {
   const roles = [
     "Full-Stack Developer",
     "Cloud & DevOps Learner",
-    "Systems Enthusiast"
+    "AI/ML Enthusiast"
   ];
 
   // Use the custom typing animation hook with optimized parameters
@@ -100,7 +100,7 @@ const Hero = ({ scrollToSection }) => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-16 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 pt-16 relative overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
