@@ -1,8 +1,9 @@
 "use client"
 import { useState, useEffect, useRef } from "react"
-import { motion, useScroll } from "framer-motion"
+import { motion, useScroll ,AnimatePresence} from "framer-motion"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
+import Intro from "./components/Intro"
 import About from "./components/About"
 import TechStack from "./components/TechStack"
 import Projects from "./components/Projects"
@@ -12,6 +13,14 @@ import "./App.css"
 import { Education } from "./components/Education"
 
 function App() {
+  const [showIntro, setShowIntro] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowIntro(false), 2000); // Show for 2.5 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
+
   const [darkMode, setDarkMode] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
   const [mounted, setMounted] = useState(false)
@@ -108,7 +117,12 @@ function App() {
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 z-50"
         style={{ scaleX: scrollYProgress, transformOrigin: "0%" }}
       /> */}
-      <Navbar
+      <AnimatePresence mode="wait">
+      {showIntro ? (
+        <Intro key="intro" />
+      ) : (
+        <div key="main">
+           <Navbar
         ref={navbarRef}
         darkMode={darkMode}
         setDarkMode={setDarkMode}
@@ -122,6 +136,11 @@ function App() {
       <Projects />
       <Contact />
       <Footer />
+          {/* Add other components like Projects, Contact, etc. */}
+        </div>
+      )}
+    </AnimatePresence>
+    
     </div>
   )
 }
