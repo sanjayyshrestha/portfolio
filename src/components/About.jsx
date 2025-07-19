@@ -40,11 +40,11 @@ export default function About() {
           animate="visible"
           variants={containerVariants}
         >
-          <motion.h2 className="text-3xl font-bold tracking-tighter sm:text-5xl" variants={itemVariants}>
+          <motion.h2 className="text-3xl sm:text-4xl font-bold tracking-tighter" variants={itemVariants}>
             About Me
           </motion.h2>
           <motion.div
-            className="h-1 w-24 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
+            className="h-1 w-24 bg-blue-600 rounded-full"
             variants={itemVariants}
           />
         </motion.div>

@@ -51,7 +51,7 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              {["Home", "About", "Tech Stack", "Projects", "Contact"].map(
+              {["Home", "About", "Tech Stack","Education", "Projects", "Contact"].map(
                 (item, index) => (
                   <motion.button
                     key={item}
@@ -61,7 +61,7 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
                     onClick={() =>
                       scrollToSection(item.toLowerCase().replace(" ", "-"))
                     }
-                    className={`relative px-3 py-2 text-sm font-medium transition-all duration-300
+                    className={`relative px-1 py-2 text-sm font-medium transition-all duration-300
   ${
     activeSection === item.toLowerCase().replace(" ", "-")
       ? "after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-6 after:bg-blue-600 dark:after:bg-blue-400"
@@ -154,7 +154,7 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
             className="md:hidden overflow-hidden"
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-              {["Home", "About", "Tech Stack", "Projects", "Contact"].map(
+              {["Home", "About", "Tech Stack","Education", "Projects", "Contact"].map(
                 (item, index) => (
                   <motion.button
                     key={item}

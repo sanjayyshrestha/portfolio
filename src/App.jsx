@@ -9,7 +9,7 @@ import Projects from "./components/Projects"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 import "./App.css"
-import { Experience } from "./components/Experience"
+import { Education } from "./components/Education"
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -52,7 +52,7 @@ function App() {
   // Effect for scroll tracking and setting active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "tech-stack", "projects", "contact"]
+      const sections = ["home", "about", "tech-stack","education", "projects", "contact"]
       // Use dynamic navbarHeight for scroll position calculation
       // Adding a small buffer (e.g., 20px) to ensure active state changes slightly before section is fully at top
       const scrollPosition = window.scrollY + navbarHeight + 20
@@ -104,10 +104,10 @@ function App() {
   return (
     <div className={`min-h-screen transition-colors duration-300 ${darkMode ? "dark" : ""}`}>
       {/* Progress Bar */}
-      <motion.div
+      {/* <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 z-50"
         style={{ scaleX: scrollYProgress, transformOrigin: "0%" }}
-      />
+      /> */}
       <Navbar
         ref={navbarRef}
         darkMode={darkMode}
@@ -118,8 +118,8 @@ function App() {
       <Hero scrollToSection={scrollToSection} />
       <About />
       <TechStack />
+      <Education />
       <Projects />
-      {/* <Experience /> */}
       <Contact />
       <Footer />
     </div>

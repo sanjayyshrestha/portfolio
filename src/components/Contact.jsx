@@ -18,8 +18,8 @@ const Contact = () => {
       transition={{ duration: 0.6 }}
       className="text-center mb-16"
     >
-      <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h2>
-      <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h2>
+      <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
       <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
         Ready to discuss your next project or explore opportunities? Let's connect!
       </p>
