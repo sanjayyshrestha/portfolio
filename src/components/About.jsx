@@ -67,8 +67,7 @@ export default function About() {
   className="text-gray-700 dark:text-gray-300 leading-relaxed"
   variants={itemVariants}
 >
-  Hi,I’m Sanjay, a computer science enthusiast and software developer from Nepal
-  . I enjoy building clean, scalable applications and continuously improving my skills across both front-end and back-end development.
+  👋 Hi, I’m Sanjay, a computer science enthusiast and software developer from Nepal. I enjoy building clean, scalable applications and continuously improving my skills across both front-end and back-end development.
 </motion.p>
 
 <motion.p
