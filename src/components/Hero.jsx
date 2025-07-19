@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Download, Mail, Github, Linkedin, ChevronDown } from "lucide-react";
 import Button from "./ui/Button";
-import pfp from "../assets/pfp.jpeg";
+import pfp from "../assets/demoimg.jpeg";
 import { useEffect, useState, useCallback } from "react"; // Added useCallback for optimization
 
 const useTypingAnimation = (
