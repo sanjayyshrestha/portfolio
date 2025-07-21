@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Badge from "./ui/Badge";
 import pfp from "../assets/pfp.jpeg"; // Use .webp if available for better quality
-
+import { Github, Linkedin } from 'lucide-react'
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -80,30 +80,64 @@ export default function About() {
           </motion.div>
 
           {/* Right Column: Image */}
-         <motion.div
+        <motion.div
   className="flex justify-center items-center p-4 order-1 sm:order-2 md:w-2/5"
   initial={{ opacity: 0, scale: 0.8 }}
   whileInView={{ opacity: 1, scale: 1 }}
   viewport={{ once: true, amount: 0.5 }}
-  transition={{ duration: 0.7, ease: 'easeOut' }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
 >
-  <div
-    className="
-      relative
-      w-72 h-72 md:w-80 md:h-80
-      rounded-xl overflow-hidden
-     border-none
-      group
-      flex items-center justify-center
-      mx-auto
-    "
-  >
-    <img
-      src={pfp}
-      alt="Sanjay Shrestha - Full-stack Developer"
-      className="w-full h-full object-cover transition-transform duration-500"
-      loading="lazy"
-    />
+  {/* ✅ Set group here for stable hover detection */}
+  <div className="w-72 h-72 md:w-80 md:h-80 [perspective:1000px] mx-auto group">
+    <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+      {/* Front Side */}
+      <div className="absolute w-full h-full backface-hidden rounded-xl overflow-hidden">
+        <img
+          src={pfp}
+          alt="Sanjay Shrestha - Full-stack Developer"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Back Side */}
+    <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-[#169948] text-white flex flex-col items-center justify-center rounded-xl px-6 py-4 text-center space-y-4">
+  {/* Professional Headline */}
+  <h3 className="text-lg md:text-xl font-semibold">Software Developer</h3>
+
+  {/* Intro Summary */}
+  <p className="text-sm md:text-base leading-relaxed">
+    I’m Sanjay, a passionate developer from Nepal who enjoys building scalable applications and learning through hands-on projects across the full stack.
+  </p>
+
+  {/* Focus Area - (This was an empty comment, assuming you might add something here later) */}
+
+  {/* Social Links at the bottom */}
+  <div className="flex justify-center items-center gap-4 mt-4 relative top-2 sm:top-3"> {/* Added margin-top for spacing */}
+    {/* LinkedIn Link */}
+    <a
+      href="https://www.linkedin.com/in/sanjayyshrestha7/" // <--- REPLACE WITH YOUR ACTUAL LINKEDIN URL
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-white hover:text-blue-200 transition-colors"
+      aria-label="LinkedIn Profile"
+    >
+      <Linkedin className="w-7 h-7 md:w-8 md:h-8" />
+    </a>
+
+    {/* GitHub Link */}
+    <a
+      href="https://github.com/sanjayyshrestha" // <--- REPLACE WITH YOUR ACTUAL GITHUB URL
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-white hover:text-gray-300 transition-colors"
+      aria-label="GitHub Profile"
+    >
+      <Github className="w-7 h-7 md:w-8 md:h-8" />
+    </a>
+  </div>
+</div>
+    </div>
   </div>
 </motion.div>
 
