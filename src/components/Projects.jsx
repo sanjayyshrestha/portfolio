@@ -5,6 +5,7 @@ import { Github, ExternalLink, Award } from "lucide-react"
 import Card from "./ui/Card"
 import Badge from "./ui/Badge"
 import leafstack from '../assets/leafstack.png'
+import sajiloYatra from '../assets/sajilo-yatra.png'
 const Projects = () => {
   const projects = [
     {
@@ -15,6 +16,16 @@ const Projects = () => {
       github: "https://github.com/sanjayyshrestha/leafstack",
       live: "https://example.com",
       image: leafstack,
+      featured: true,
+    },
+     {
+      title: "Sajilo Yatra",
+      description:
+        "Sajilo Yatra is a digital platform designed to simplify, personalize and elevate the travel experience across Nepal. Whether you are a local explorer or an international visitor, Sajilo Yatra helps you discover hidden destinations, plan your journey with ease and connect with authentic local experiences.",
+      tags: ["React", "Node.js", "MongoDB", "Express"],
+      github: "https://github.com/sanjayyshrestha/sajilo-yatra",
+      live: "https://example.com",
+      image: sajiloYatra,
       featured: true,
     },
     // {
