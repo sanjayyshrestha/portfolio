@@ -1,81 +1,70 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Mail, Github, Linkedin, ChevronDown } from "lucide-react";
+import { Download, Mail, Github, Linkedin } from "lucide-react";
 import Button from "./ui/Button";
 import pfp from "../assets/demoimg.jpeg";
-import { useEffect, useState, useCallback } from "react"; // Added useCallback for optimization
-
-const useTypingAnimation = (
-  texts,
-  typingSpeed = 60, // Slightly faster typing
-  erasingSpeed = 20, // Faster erasing for quick transitions
-  pauseTime = 1500 // Shorter pause for a more dynamic feel
-) => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const [isTyping, setIsTyping] = useState(true);
-  const [charIndex, setCharIndex] = useState(0);
-
-  // Memoize the animation logic to prevent unnecessary re-renders
-  const animateText = useCallback(() => {
-    const currentText = texts[currentTextIndex];
-    let timeout;
-
-    if (isTyping) {
-      // Typing phase
-      if (charIndex < currentText.length) {
-        timeout = setTimeout(() => {
-          // Set the display text by slicing the current text up to charIndex + 1
-          setDisplayText(currentText.substring(0, charIndex + 1));
-          setCharIndex(prev => prev + 1);
-        }, typingSpeed);
-      } else {
-        // Pause after typing is complete
-        timeout = setTimeout(() => {
-          setIsTyping(false);
-        }, pauseTime);
-      }
-    } else {
-      // Erasing phase
-      if (charIndex > 0) {
-        timeout = setTimeout(() => {
-          // Erase character by character
-          setDisplayText(currentText.substring(0, charIndex - 1));
-          setCharIndex(prev => prev - 1);
-        }, erasingSpeed);
-      } else {
-        // Move to the next text in the array and restart typing
-        setCurrentTextIndex(prev => (prev + 1) % texts.length);
-        setIsTyping(true);
-      }
-    }
-
-    return () => clearTimeout(timeout); // Clear timeout on component unmount or dependency change
-  }, [charIndex, isTyping, currentTextIndex, texts, typingSpeed, erasingSpeed, pauseTime]);
-
-  useEffect(() => {
-    animateText(); // Call the memoized animation logic
-  }, [animateText]); // Re-run effect when animateText function changes (due to dependencies)
-
-  return displayText;
-};
+import { useState, useEffect } from "react";
 
 const Hero = ({ scrollToSection }) => {
   const [mounted, setMounted] = useState(false);
-
   const roles = [
     "Full-Stack Developer",
     "Cloud & DevOps Learner",
     "AI/ML Enthusiast"
   ];
 
-  // Use the custom typing animation hook with optimized parameters
-  const displayText = useTypingAnimation(roles);
+  // We'll use a local state to manage the typing animation
+  const [displayText, setDisplayText] = useState('');
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(true);
+  const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    // This effect runs only once when the component mounts
+    if (!mounted) return;
+
+    let typingTimeout;
+    let erasingTimeout;
+    let pauseTimeout;
+
+    const currentText = roles[currentRoleIndex];
+
+    if (isTyping) {
+      if (charIndex < currentText.length) {
+        typingTimeout = setTimeout(() => {
+          setDisplayText(currentText.substring(0, charIndex + 1));
+          setCharIndex(prev => prev + 1);
+        }, 60); // typingSpeed
+      } else {
+        pauseTimeout = setTimeout(() => {
+          setIsTyping(false);
+        }, 1500); // pauseTime
+      }
+    } else {
+      if (charIndex > 0) {
+        erasingTimeout = setTimeout(() => {
+          setDisplayText(currentText.substring(0, charIndex - 1));
+          setCharIndex(prev => prev - 1);
+        }, 20); // erasingSpeed
+      } else {
+        setCurrentRoleIndex(prev => (prev + 1) % roles.length);
+        setIsTyping(true);
+      }
+    }
+
+    // Cleanup function to clear timeouts
+    return () => {
+      clearTimeout(typingTimeout);
+      clearTimeout(erasingTimeout);
+      clearTimeout(pauseTimeout);
+    };
+
+  }, [displayText, isTyping, currentRoleIndex, charIndex, mounted, roles]);
 
   // Framer Motion variants for animations
   const fadeInUp = {
@@ -163,7 +152,7 @@ const Hero = ({ scrollToSection }) => {
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-medium min-h-[2rem] flex items-center justify-center lg:justify-start typing-text relative" 
+              className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-medium min-h-[2rem] flex items-center justify-center lg:justify-start typing-text relative"
             >
               <span className="mr-2 text-xl md:text-2xl font-bold">{displayText}</span>
               <motion.span
@@ -187,7 +176,7 @@ const Hero = ({ scrollToSection }) => {
             <motion.div {...scaleOnHover}>
               <Button
                 size="lg"
-                className="bg-[#364BC5]  text-white px-8 py-3 shadow-lg"
+                className="bg-[#364BC5] text-white px-8 py-3 shadow-lg"
               >
                 <Download className="mr-2 h-5 w-5" />
                 Download Resume
