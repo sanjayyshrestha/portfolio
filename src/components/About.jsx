@@ -42,13 +42,13 @@ export default function About() {
           variants={containerVariants}
         >
           <motion.h2
-            className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight"
+            className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-4"
             variants={itemVariants}
           >
             About Me
           </motion.h2>
           <motion.div
-            className="h-1 w-20 bg-blue-600 dark:bg-blue-500 mx-auto rounded-full mt-2"
+            className="h-1 w-20 bg-blue-600 dark:bg-blue-500 mx-auto rounded-full "
             variants={itemVariants}
           />
         </motion.div>
