@@ -143,7 +143,7 @@ const Hero = ({ scrollToSection }) => {
         <div className="absolute top-80 left-64 w-6 h-2 opacity-[0.12] dark:opacity-[0.18] bg-cyan-400 rounded-sm"></div>
         <div className="absolute bottom-32 left-48 w-2 h-6 opacity-[0.12] dark:opacity-[0.18] bg-indigo-400 rounded-sm"></div>
         <div className="absolute top-48 right-80 w-4 h-4 opacity-[0.12] dark:opacity-[0.18] bg-red-400 rotate-45"></div>
-        <div className="absolute bottom-64 left-80 w-3 h-8 opacity-[0.12] dark:opacity-[0.18] bg-yellow-400 rounded-sm"></div>
+        {/* <div className="absolute bottom-64 left-80 w-3 h-8 opacity-[0.12] dark:opacity-[0.18] bg-yellow-400 rounded-sm"></div> */}
       </div>
 
       {/* Gradient Blur Backgrounds */}
