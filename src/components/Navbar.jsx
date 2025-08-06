@@ -9,6 +9,33 @@ import profileImage from "../assets/demoimg.jpeg"
 
 const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [showNavbar, setShowNavbar] = useState(false)
+
+  // Show navbar after scrolling 60% of the hero section height
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById("home")
+      if (!heroSection) return
+
+      const heroHeight = heroSection.offsetHeight
+      const scrollY = window.scrollY || window.pageYOffset
+
+      if (scrollY > heroHeight * 0.5) {
+        setShowNavbar(true)
+      } else {
+        setShowNavbar(false)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    // Check on mount
+    handleScroll()
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
   // Lock scroll when mobile menu is open
   useEffect(() => {
@@ -35,6 +62,10 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
     link.href = "/resume.pdf"
     link.download = "Sanjay_Shrestha_Resume.pdf"
     link.click()
+  }
+
+  if (!showNavbar) {
+    return null
   }
 
   return (
