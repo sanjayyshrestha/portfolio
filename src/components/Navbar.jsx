@@ -14,22 +14,19 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
   // Show navbar after scrolling 60% of the hero section height
   useEffect(() => {
     const handleScroll = () => {
-      const heroSection = document.getElementById("home")
-      if (!heroSection) return
+      const heroImage = document.querySelector("#home img")
 
-      const heroHeight = heroSection.offsetHeight
-      const scrollY = window.scrollY || window.pageYOffset
+      if (!heroImage) return
 
-      if (scrollY > heroHeight * 0.5) {
-        setShowNavbar(true)
-      } else {
-        setShowNavbar(false)
-      }
+      const rect = heroImage.getBoundingClientRect()
+      const thresholdPassed = rect.top + rect.height * 0.3 < 0
+
+      setShowNavbar(thresholdPassed)
     }
 
     window.addEventListener("scroll", handleScroll)
 
-    // Check on mount
+    // Initial check on mount
     handleScroll()
 
     return () => {
@@ -64,56 +61,67 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
     link.click()
   }
 
-  if (!showNavbar) {
-    return null
-  }
-
   return (
     <>
-      {/* Navbar */}
-      <nav className={`fixed top-0  w-full z-40 backdrop-blur-md border-b transition-all ${
-        darkMode ? "bg-gray-900/90 border-gray-800" : "bg-white/90 border-gray-200"
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="font-extrabold text-xl cursor-pointer" onClick={() => scrollToSection("home")}>
-            <span className={`${darkMode ? "text-gray-100" : "text-gray-800"}`}>SAN</span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">JAY</span>
-          </div>
+      {/* Animated Navbar */}
+      <AnimatePresence>
+        {showNavbar && (
+          <motion.nav
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -100, opacity: 0 }}
+            transition={{ 
+              type: "spring",
+              stiffness: 400,
+              damping: 30,
+              duration: 0
+            }}
+            className={`fixed top-0 w-full z-40 backdrop-blur-md border-b transition-all ${
+              darkMode ? "bg-gray-900/90 border-gray-800" : "bg-white/90 border-gray-200"
+            }`}
+          >
+            <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+              {/* Logo */}
+              <div className="font-extrabold text-xl cursor-pointer" onClick={() => scrollToSection("home")}>
+                <span className={`${darkMode ? "text-gray-100" : "text-gray-800"}`}>SAN</span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">JAY</span>
+              </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
-            {menuItems.map(item => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`relative text-md font-medium transition-all ${
-                  activeSection === item.id
-                    ? darkMode ? "text-blue-400" : "text-blue-600"
-                    : darkMode ? "text-gray-300 hover:text-white" : "text-gray-700 hover:text-black"
-                }`}
-              >
-                {item.name}
-                {activeSection === item.id && (
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500" />
-                )}
-              </button>
-            ))}
-          </div>
+              {/* Desktop Menu */}
+              <div className="hidden md:flex space-x-6">
+                {menuItems.map(item => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`relative text-md font-medium transition-all ${
+                      activeSection === item.id
+                        ? darkMode ? "text-blue-400" : "text-blue-600"
+                        : darkMode ? "text-gray-300 hover:text-white" : "text-gray-700 hover:text-black"
+                    }`}
+                  >
+                    {item.name}
+                    {activeSection === item.id && (
+                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500" />
+                    )}
+                  </button>
+                ))}
+              </div>
 
-          {/* Right Controls */}
-          <div className="flex items-center space-x-2 md:space-x-4">
-            <button onClick={handleDarkModeToggle} className="p-2 rounded-md">
-              {darkMode ? <Sun className="w-5 h-5 text-gray-300" /> : <Moon className="w-5 h-5 text-gray-700" />}
-            </button>
-            <div className="md:hidden">
-              <button onClick={() => setMobileMenuOpen(prev => !prev)} className="p-2">
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
+              {/* Right Controls */}
+              <div className="flex items-center space-x-2 md:space-x-4">
+                <button onClick={handleDarkModeToggle} className="p-2 rounded-md">
+                  {darkMode ? <Sun className="w-5 h-5 text-gray-300" /> : <Moon className="w-5 h-5 text-gray-700" />}
+                </button>
+                <div className="md:hidden">
+                  <button onClick={() => setMobileMenuOpen(prev => !prev)} className="p-2">
+                    {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </nav>
+          </motion.nav>
+        )}
+      </AnimatePresence>
 
       {/* Mobile Sidebar with AnimatePresence */}
       <AnimatePresence>

@@ -84,7 +84,7 @@ const Hero = ({ scrollToSection }) => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 pt-16 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 pt-10 relative overflow-hidden"
     >
       {/* Grid Background */}
       <div className="absolute inset-0 overflow-hidden">
