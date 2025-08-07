@@ -169,7 +169,7 @@ const Hero = ({ scrollToSection }) => {
           <img
             src={pfp}
             alt="Sanjay Shrestha's Profile Picture"
-            className="relative top-3 sm:top-0 rounded-full w-64 h-64 md:w-80 md:h-80 object-cover shadow-2xl border-4 border-blue-400 dark:border-purple-600 transition-all duration-500 hover:scale-105"
+            className="relative top-3 sm:top-0 rounded-full w-64 h-64 md:w-96 md:h-96 object-cover shadow-2xl border-4 border-blue-400 dark:border-purple-600 transition-all duration-500 hover:scale-105"
           />
         </motion.div>
 
