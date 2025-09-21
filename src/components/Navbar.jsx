@@ -48,7 +48,14 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
     <>
       {/* Desktop Navbar */}
       {showNavbar && (
-        <nav className={`fixed top-0 w-full z-40 backdrop-blur-md border-b transition-all duration-300 ${darkMode ? "bg-gray-900/90 border-gray-800" : "bg-white/90 border-gray-200"}`}>
+        <nav
+  className={`fixed top-0 w-full z-40 backdrop-blur-md border-b transition-all duration-300 ${
+    darkMode
+      ? "bg-gray-900 border-gray-800"
+      : "bg-white border-gray-200"
+  }`}
+>
+
           <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
             {/* Logo */}
             <div className="font-bold text-xl cursor-pointer" onClick={() => scrollToSection("home")}>

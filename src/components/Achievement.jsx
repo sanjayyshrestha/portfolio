@@ -4,7 +4,8 @@ import { motion } from "framer-motion"
 import { Award, CalendarDays } from "lucide-react"
 import locusLogo from '../assets/locus-logo.png'
 import locusFellowship from '../assets/locus-fellowship.jpg'
-
+import leapFrog60 from '../assets/lf-60.jpg'
+import lfLogo from '../assets/lf-logo.jpeg'
 const CertificationsAchievements = () => {
   const certifications = [
     {
@@ -15,6 +16,15 @@ const CertificationsAchievements = () => {
       certificateImage: locusFellowship,
       issuerLogo: locusLogo,
     },
+     {
+      id: 2,
+      title: "60 Days Challenge",
+      issuer: "Leapfrog Technology,Inc.",
+      issuedDate: "Sep 2025",
+      certificateImage: leapFrog60,
+      issuerLogo: lfLogo,
+    },
+    
   ]
 
   return (
