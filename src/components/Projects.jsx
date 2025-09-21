@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, ExternalLink, Award } from "lucide-react"
+import { Github, ExternalLink, Award, AlertCircle } from "lucide-react"
 import Card from "./ui/Card"
 import Badge from "./ui/Badge"
 import leafstack from '../assets/leafstack.png'
@@ -54,101 +54,50 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="projects" className="py-20 bg-white dark:bg-gray-900">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            A showcase of my recent work demonstrating full-stack development
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Projects
+          </h2>
+          <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-6"></div>
+          <p className="text-lg text-gray-600 dark:text-gray-300">
+            Exciting projects are on the way. Stay tuned!
           </p>
         </motion.div>
 
+        {/* Coming Soon Animation */}
         <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-8"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.6,
+            ease: "easeOut",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="flex flex-col items-center justify-center"
         >
-          {projects.map((project, index) => (
-            <motion.div key={index} variants={fadeInUp} whileHover={{ y: -10 }} className="group">
-              <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-2 hover:border-blue-200 dark:hover:border-blue-800 bg-white dark:bg-gray-900">
-                <div className="aspect-video relative overflow-hidden">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
-                  {project.featured && (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      className="absolute top-4 right-4"
-                    >
-                      <Badge className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white">
-                        <Award className="w-3 h-3 mr-1" />
-                        Featured
-                      </Badge>
-                    </motion.div>
-                  )}
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, tagIndex) => (
-                      <motion.div
-                        key={tagIndex}
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: tagIndex * 0.1 }}
-                      >
-                        <Badge
-                          variant="outline"
-                          className="hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
-                        >
-                          {tag}
-                        </Badge>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  <div className="flex space-x-4">
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <a
-                        href={project.github}
-                        className="flex items-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                      >
-                        <Github className="h-4 w-4 mr-1" />
-                        Code
-                      </a>
-                    </motion.div>
-                    {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <a
-                        href={project.live}
-                        className="flex items-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                      >
-                        <ExternalLink className="h-4 w-4 mr-1" />
-                        Live Demo
-                      </a>
-                    </motion.div> */}
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+          <AlertCircle className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4 animate-bounce" />
+          <motion.h3
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              repeat: Infinity,
+              repeatType: "mirror",
+            }}
+            className="text-2xl font-semibold text-gray-900 dark:text-white"
+          >
+            Coming Soon...
+          </motion.h3>
         </motion.div>
       </div>
     </section>
