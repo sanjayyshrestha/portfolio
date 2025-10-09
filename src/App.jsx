@@ -63,7 +63,7 @@ function App() {
   // Effect for scroll tracking and setting active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "tech-stack","education", "projects","certifications", "contact"]
+      const sections = ["home", "about", "tech-stack","education", "projects", "contact"]
       // Use dynamic navbarHeight for scroll position calculation
       // Adding a small buffer (e.g., 20px) to ensure active state changes slightly before section is fully at top
       const scrollPosition = window.scrollY + navbarHeight + 20
@@ -136,7 +136,7 @@ function App() {
       <TechStack />
       <Education />
       <Projects />
-      <CertificationsAchievements/>
+      {/* <CertificationsAchievements/> */}
       <Contact />
       <Footer />
           {/* Add other components like Projects, Contact, etc. */}

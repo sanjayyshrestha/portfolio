@@ -31,7 +31,6 @@ const Navbar = ({ darkMode, setDarkMode, activeSection, scrollToSection }) => {
     { name: "TechStack", icon: Code, id: "tech-stack" },
     { name: "Education", icon: GraduationCap, id: "education" },
     { name: "Projects", icon: FolderOpen, id: "projects" },
-    { name: "Certifications", icon: Award, id: "certifications" },
     { name: "Contact", icon: Contact, id: "contact" },
   ]
 
